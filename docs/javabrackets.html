@@ -1,0 +1,38 @@
+
+<head>
+  <title>Bracket changer for Java</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <style>
+    body {
+      height: 100%;
+      background-color: darkslategray;
+    }
+
+    textarea {
+      width: 100%;
+      height: 56vw;
+      font-size: 18px;
+    }
+  </style>
+  <script>
+    $(document).ready(function(){
+      $("#bracket_changer").on("paste", function() {
+        var ctl = $(this);
+        setTimeout(function() {
+          $("textarea#bracket_changer").val(ctl.val().replaceAll("[", "{").replaceAll("]", "}"));
+        }, 100);
+      });
+    });
+  </script>
+</head>
+
+<!--
+  this page is from https://kuannoodle1.github.io/contesthelper/javabrackets.html
+
+  Intent of this is to help contest, where description is all arrays using [], e.g. [1,2,3].
+  but in Java, array literals are {1,2,3}
+  this tool changes after you paste.
+-->
+
+<textarea id="bracket_changer" rows="20" cols="100" 
+  placeholder="content pasted here will auto change [ to { and ] to }, courtesy from https://kuannoodle1.github.io/contesthelper/javabrackets.html"></textarea>
