@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <title>blog.csdn.net Paste Helper</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        body {
+            height: 100%;
+            background-color: darkslategray;
+        }
+
+        /*   
+        textarea {
+            width: 100%;
+            height: 56vw;
+            font-size: 18px;
+        }
+    */
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("#bracket_changer").on("paste", function () {
+                var ctl = $(this);
+                setTimeout(function () {
+                    $("#display_area").html(ctl.val());
+                }, 100);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <textarea id="bracket_changer" rows="10" cols="100"
+        placeholder="Inspect html element in blog.csdn.net and paste element in here to reveal the code"></textarea>
+    <p id="display_area">...Code will display here...</p>
+
+</body>
+
+</html>
